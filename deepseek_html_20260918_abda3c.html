@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manish Dental Clinic | Dentist in Sultanpur, Uttar Pradesh</title>
+  <meta name="description" content="Manish Dental Clinic in Sultanpur, Uttar Pradesh. Explore dental services, clinic information, FAQs and appointment booking.">
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* reset & base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #ffffff;
+      color: #1e2b3c;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    :root {
+      --navy: #0A2540;
+      --teal: #00A8A8;
+      --teal-light: #e6f7f7;
+      --soft-blue: #f0f7f9;
+      --gray-light: #f8fafc;
+      --gray-mid: #64748b;
+      --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 16px 30px rgba(0, 0, 0, 0.05);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--navy);
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-subhead {
+      color: var(--gray-mid);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: white;
+      box-shadow: 0 8px 18px rgba(0, 168, 168, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: #008f8f;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 22px rgba(0, 168, 168, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+
+    .btn-outline:hover {
+      background: rgba(10, 37, 64, 0.04);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-teal {
+      background: transparent;
+      border-color: var(--teal);
+      color: var(--teal);
+    }
+
+    .btn-outline-teal:hover {
+      background: rgba(0, 168, 168, 0.06);
+    }
+
+    /* fade-up animation */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.3, 1), transform 0.7s cubic-bezier(0.2, 0.9, 0.3, 1);
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- HEADER / NAV ---------- */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 0;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+    }
+
+    .navbar.scrolled {
+      padding: 12px 0;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo i {
+      color: var(--teal);
+      font-size: 1.6rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--navy);
+      font-size: 0.98rem;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a:not(.nav-cta)::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--teal);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--teal);
+    }
+
+    .nav-links a:not(.nav-cta):hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--teal);
+      color: white !important;
+      padding: 10px 22px;
+      border-radius: 40px;
+      font-weight: 600;
+      box-shadow: 0 6px 14px rgba(0, 168, 168, 0.2);
+    }
+
+    .nav-cta:hover {
+      background: #008f8f;
+      transform: translateY(-2px);
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--navy);
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      padding-top: 140px;
+      padding-bottom: 80px;
+      background: linear-gradient(145deg, #ffffff 0%, #fafdfd 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0,168,168,0.04) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--teal-light);
+      color: var(--teal);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: 40px;
+      margin-bottom: 24px;
+      letter-spacing: 0.3px;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: var(--gray-mid);
+      font-size: 1.15rem;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .trust-indicators {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trust-item i {
+      color: var(--teal);
+      font-size: 1.1rem;
+    }
+
+    .hero-image {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      aspect-ratio: 4 / 3.4;
+      background: #d9e9ec;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* floating shapes */
+    .float-shape {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: rgba(0, 168, 168, 0.06);
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      z-index: 0;
+      animation: float 12s infinite alternate ease-in-out;
+    }
+
+    .shape-1 {
+      top: 10%;
+      left: -5%;
+      width: 120px;
+      height: 120px;
+    }
+
+    .shape-2 {
+      bottom: 5%;
+      right: -3%;
+      width: 80px;
+      height: 80px;
+      background: rgba(0, 168, 168, 0.04);
+      animation-duration: 14s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-20px) rotate(8deg); }
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      aspect-ratio: 4/3.6;
+      background: #e2f0f2;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .highlight-item i {
+      color: var(--teal);
+      font-size: 1.2rem;
+    }
+
+    /* ---------- SERVICES ---------- */
+    .services {
+      background: var(--soft-blue);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 28px 20px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s ease;
+      border: 1px solid rgba(0, 0, 0, 0.01);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(0, 168, 168, 0.15);
+    }
+
+    .service-icon {
+      font-size: 2rem;
+      color: var(--teal);
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      color: var(--gray-mid);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
+      flex-grow: 1;
+    }
+
+    .service-link {
+      text-decoration: none;
+      color: var(--teal);
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .service-link:hover {
+      gap: 10px;
+    }
+
+    /* ---------- WHY CHOOSE US ---------- */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .why-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #f0f4f8;
+      transition: all 0.25s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--teal-light);
+    }
+
+    .why-card i {
+      font-size: 1.6rem;
+      color: var(--teal);
+      margin-bottom: 16px;
+    }
+
+    .why-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      color: var(--gray-mid);
+      font-size: 0.92rem;
+    }
+
+    /* ---------- REVIEWS ---------- */
+    .reviews {
+      background: linear-gradient(0deg, #ffffff, #f9fdfd);
+    }
+
+    .rating-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .rating-badge {
+      background: var(--navy);
+      color: white;
+      font-weight: 700;
+      font-size: 1.8rem;
+      padding: 10px 24px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .rating-badge i {
+      color: #ffb800;
+    }
+
+    .review-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      border-left: 6px solid var(--teal);
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .review-stars {
+      color: #ffb800;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+
+    .review-text {
+      color: var(--navy);
+      font-size: 1rem;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .review-author i {
+      font-size: 1.6rem;
+      color: var(--teal);
+    }
+
+    .review-author span {
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 0.95rem;
+    }
+
+    .review-author small {
+      display: block;
+      font-weight: 400;
+      color: var(--gray-mid);
+      font-size: 0.8rem;
+    }
+
+    /* ---------- APPOINTMENT CTA ---------- */
+    .appointment-cta {
+      background: var(--navy);
+      border-radius: 48px;
+      padding: 64px 48px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 32px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .appointment-cta h2 {
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .appointment-cta p {
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 500px;
+      font-size: 1.1rem;
+    }
+
+    .appointment-cta .btn-primary {
+      background: white;
+      color: var(--navy);
+      box-shadow: none;
+    }
+
+    .appointment-cta .btn-primary:hover {
+      background: #f0f7f9;
+    }
+
+    .appointment-cta .btn-outline {
+      border-color: rgba(255, 255, 255, 0.4);
+      color: white;
+    }
+
+    .appointment-cta .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+    }
+
+    .contact-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #edf2f7;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 24px;
+      font-size: 1.4rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .contact-detail i {
+      color: var(--teal);
+      font-size: 1.3rem;
+      width: 24px;
+      margin-top: 3px;
+    }
+
+    .contact-detail strong {
+      display: block;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .contact-detail span, .contact-detail a {
+      color: var(--gray-mid);
+      text-decoration: none;
+    }
+
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .map-embed {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      height: 100%;
+      min-height: 380px;
+      background: #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray-mid);
+      font-size: 0.95rem;
+      text-align: center;
+      padding: 0;
+      position: relative;
+    }
+
+    .map-embed iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      border: 0;
+      display: block;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--navy);
+      color: rgba(255, 255, 255, 0.7);
+      padding: 60px 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand h3 {
+      color: white;
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+
+    .footer-brand p {
+      max-width: 300px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .footer-links h4 {
+      color: white;
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 32px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 1024px) {
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 60px 0;
+      }
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding-top: 120px;
+      }
+      .hero h1 {
+        font-size: 2.3rem;
+      }
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 32px 24px;
+        gap: 24px;
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.06);
+        transform: translateY(-120%);
+        transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1);
+        border-radius: 0 0 24px 24px;
+        z-index: 999;
+        align-items: flex-start;
+      }
+      .nav-links.open {
+        transform: translateY(0);
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav-cta {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .appointment-cta {
+        padding: 48px 28px;
+        flex-direction: column;
+        text-align: center;
+      }
+      .appointment-cta .btn {
+        width: 100%;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .trust-indicators {
+        gap: 16px;
+      }
+      .map-embed iframe {
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero-buttons .btn {
+        width: 100%;
+      }
+      .rating-badge {
+        font-size: 1.4rem;
+        padding: 8px 18px;
+      }
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* accessibility outline */
+    .btn:focus-visible,
+    .nav-links a:focus-visible,
+    .hamburger:focus-visible {
+      outline: 3px solid var(--teal);
+      outline-offset: 3px;
+    }
+
+    /* utility */
+    .mt-2 { margin-top: 8px; }
+    .text-center { text-align: center; }
+  </style>
+
+<style>
+/* ===== Professional upgrade layer ===== */
+:root{--ink:#0A2540;--accent:#00A8A8;--accent2:#087f8f;--paper:#f7fbfc}
+.upgrade-wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.profile-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center}
+.profile-photo{position:relative;border-radius:28px;overflow:hidden;box-shadow:0 22px 60px rgba(10,37,64,.16);background:#eaf5f6}
+.profile-photo img{width:100%;height:560px;object-fit:cover;display:block}
+.profile-badge{position:absolute;left:20px;bottom:20px;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);padding:14px 18px;border-radius:16px;font-weight:700;color:var(--ink);box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--accent2);font-weight:800;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.profile-copy h2{font-size:clamp(2rem,4vw,3.3rem);line-height:1.05;color:var(--ink);margin:0 0 16px}
+.profile-copy p{color:#526579;font-size:1.05rem;line-height:1.8}
+.credentials{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:24px 0}
+.credential{padding:16px;border:1px solid #dce9ed;border-radius:16px;background:#fff}
+.credential strong{display:block;color:var(--ink);margin-bottom:4px}.credential span{font-size:.9rem;color:#6b7d8c}
+.gallery-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;grid-auto-rows:250px;gap:16px}
+.gallery-card{position:relative;overflow:hidden;border-radius:22px;background:#e8f1f3;cursor:zoom-in}
+.gallery-card:first-child{grid-row:span 2}
+.gallery-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.gallery-card:hover img{transform:scale(1.05)}
+.gallery-overlay{position:absolute;inset:auto 0 0;padding:28px 18px 16px;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.65));font-weight:700}
+.faq-list{max-width:900px;margin:0 auto}
+.faq-item{background:#fff;border:1px solid #dce9ed;border-radius:16px;margin:12px 0;overflow:hidden}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;border:0;background:none;padding:20px;font:inherit;font-weight:800;color:var(--ink);cursor:pointer;text-align:left}
+.faq-q i{transition:transform .25s}.faq-item.open .faq-q i{transform:rotate(180deg)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}.faq-a>div{overflow:hidden;padding:0 20px;color:#5e7080;line-height:1.7}
+.faq-item.open .faq-a{grid-template-rows:1fr}.faq-item.open .faq-a>div{padding:0 20px 20px}
+.trust-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 auto;max-width:1180px;padding:22px 24px}
+.trust-pill{display:flex;gap:12px;align-items:center;padding:16px;background:#fff;border:1px solid #e1ecef;border-radius:16px}
+.trust-pill i{color:var(--accent);font-size:1.25rem}.trust-pill strong{display:block;color:var(--ink)}.trust-pill span{font-size:.82rem;color:#738391}
+.appointment-box{display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:center;background:linear-gradient(135deg,#0A2540,#0b5562);color:#fff;border-radius:28px;padding:42px}
+.appointment-box h2{font-size:clamp(2rem,4vw,3rem);margin:0 0 12px; color: #ffffff;}
+.appointment-box p{color:#d8edf0;line-height:1.7}
+.appointment-form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.appointment-form input,.appointment-form select,.appointment-form textarea{width:100%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:#fff;border-radius:12px;padding:14px;outline:none}
+.appointment-form option{color:#111}.appointment-form textarea{grid-column:1/-1;min-height:90px;resize:vertical}
+.appointment-form button{grid-column:1/-1;border:0;border-radius:12px;padding:15px;background:#00c2b7;color:#062b34;font-weight:900;cursor:pointer}
+.sticky-actions{position:fixed;left:14px;right:14px;bottom:14px;z-index:999;display:none;gap:8px;padding:8px;background:rgba(10,37,64,.92);backdrop-filter:blur(12px);border-radius:16px;box-shadow:0 12px 35px rgba(0,0,0,.25)}
+.sticky-actions a{flex:1;text-align:center;padding:11px 8px;border-radius:10px;color:#fff;text-decoration:none;font-weight:800;font-size:.86rem}.sticky-actions a:first-child{background:#00a884}.sticky-actions a:nth-child(2){background:#00a8a8}.sticky-actions a:last-child{background:#174a63}
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:998;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:#25d366;color:#fff;font-size:1.65rem;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.2)}
+.lightbox{position:fixed;inset:0;background:rgba(3,13,22,.92);z-index:2000;display:none;align-items:center;justify-content:center;padding:30px}.lightbox.open{display:flex}.lightbox img{max-width:92vw;max-height:88vh;border-radius:18px}.lightbox button{position:absolute;top:18px;right:22px;border:0;background:#fff;color:#0A2540;border-radius:50%;width:44px;height:44px;font-size:1.3rem;cursor:pointer}
+.section-soft{background:linear-gradient(180deg,#f8fcfd,#eef8f9)}
+@media(max-width:850px){.profile-grid,.appointment-box{grid-template-columns:1fr}.profile-photo img{height:420px}.gallery-grid{grid-template-columns:1fr 1fr;grid-auto-rows:210px}.gallery-card:first-child{grid-row:span 1}.trust-strip{grid-template-columns:1fr 1fr}.sticky-actions{display:flex}.wa-float{bottom:88px}}
+@media(max-width:560px){.upgrade-wrap{padding:0 16px}.credentials{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr;grid-auto-rows:230px}.trust-strip{grid-template-columns:1fr;padding:18px 16px}.appointment-box{padding:28px 20px}.appointment-form{grid-template-columns:1fr}.appointment-form textarea,.appointment-form button{grid-column:auto}.profile-photo img{height:350px}.wa-float{display:none}}
+</style>
+
+<meta property="og:title" content="Manish Dental Clinic | Dental Care in Sultanpur">
+<meta property="og:description" content="Patient-focused dental care, treatment information and appointment booking.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0A2540">
+</head>
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <i class="fas fa-tooth"></i> Manish Dental
+      </a>
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a>
+        <a href="#doctor">Doctor</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#faq">FAQ</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="tel:08400657128" class="nav-cta">Book Appointment</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+      <div class="float-shape shape-1"></div>
+      <div class="float-shape shape-2"></div>
+      <div class="container hero-grid">
+        <div class="hero-content fade-up">
+          <span class="hero-badge">Trusted Dental Care in Newadhiya</span>
+          <h1>Your Smile Deserves the Best Care</h1>
+          <p>Professional dental care focused on your comfort, oral health and confident smile.</p>
+          <div class="hero-buttons">
+            <a href="tel:08400657128" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book an Appointment</a>
+            <a href="tel:08400657128" class="btn btn-outline"><i class="fas fa-phone-alt"></i> Call Now</a>
+          </div>
+          <div class="trust-indicators">
+            <div class="trust-item"><i class="fas fa-star"></i> 5.0 Google Rating</div>
+            <div class="trust-item"><i class="fas fa-user-friends"></i> 100+ Patient Reviews</div>
+            <div class="trust-item"><i class="fas fa-user-md"></i> Professional Dental Care</div>
+            <div class="trust-item"><i class="fas fa-heart"></i> Patient-focused Treatment</div>
+          </div>
+        </div>
+        <div class="hero-image fade-up">
+          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&h=600&fit=crop&crop=face" alt="Dentist consulting a patient at Manish Dental Clinic">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== APPOINTMENT FORM (moved above About) ===== -->
+    <section id="appointment" class="section" style="padding:80px 0;">
+      <div class="upgrade-wrap">
+        <div class="appointment-box">
+          <div>
+            <div class="eyebrow" style="color:#7ff6ef;"><i class="fa-solid fa-calendar-check"></i> Appointment</div>
+            <h2>Book your dental visit</h2>
+            <p>Send your preferred details on WhatsApp. The clinic can confirm the appointment directly.</p>
+            <p><i class="fa-solid fa-phone"></i> <strong>08400657128</strong></p>
+          </div>
+          <form class="appointment-form" id="appointmentForm">
+            <input id="apName" required placeholder="Your name" aria-label="Your name">
+            <input id="apPhone" required type="tel" placeholder="Phone number" aria-label="Phone number">
+            <input id="apDate" type="date" aria-label="Preferred date">
+            <select id="apTreatment" aria-label="Treatment">
+              <option value="">Select treatment</option>
+              <option>Dental Checkup</option><option>Teeth Cleaning</option><option>Root Canal Treatment</option>
+              <option>Dental X-Ray</option><option>Crowns & Bridges</option><option>Dental Implants</option>
+              <option>Tooth Restoration</option><option>General Dental Care</option>
+            </select>
+            <textarea id="apMessage" placeholder="Anything you'd like the clinic to know?"></textarea>
+            <button type="submit"><i class="fa-brands fa-whatsapp"></i> Send Appointment Request</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-image fade-up">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&h=600&fit=crop&crop=center" alt="Modern dental clinic interior">
+        </div>
+        <div class="about-content fade-up">
+          <h2>Quality Dental Care With a Personal Touch</h2>
+          <p style="color: var(--gray-mid); font-size: 1.05rem; margin-bottom: 16px;">
+            Manish Dental Clinic provides professional dental treatment with a focus on patient comfort, hygiene and modern dental care. 
+            We are committed to creating a calm, welcoming environment for every visit.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight-item"><i class="fas fa-check-circle"></i> Experienced Dental Professional</div>
+            <div class="highlight-item"><i class="fas fa-check-circle"></i> Modern Treatment Approach</div>
+            <div class="highlight-item"><i class="fas fa-check-circle"></i> Hygienic Environment</div>
+            <div class="highlight-item"><i class="fas fa-check-circle"></i> Patient-Centered Care</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="services">
+      <div class="container">
+        <h2 class="fade-up">Our Dental Services</h2>
+        <p class="section-subhead fade-up">Comprehensive care for your teeth and gums, using modern techniques and a gentle approach.</p>
+        <div class="services-grid">
+          <!-- 1 -->
+          <div class="service-card fade-up">
+            <div class="service-icon"><i class="fas fa-tooth"></i></div>
+            <h3>Dental Checkup</h3>
+            <p>Comprehensive oral examination to detect issues early and keep your smile healthy.</p>
+            <a href="tel:08400657128" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <!-- 2 -->
+          <div class="service-card fade-up">
+            <div class="service-icon"><i class="fas fa-brush"></i></div>
+            <h3>Teeth Cleaning</h3>
+            <p>Professional scaling and polishing to remove plaque and tartar for fresh, clean teeth.</p>
+            <a href="tel:08400657128" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <!-- 3 -->
+          <div class="service-card fade-up">
+            <div class="service-icon"><i class="fas fa-syringe"></i></div>
+            <h3>Root Canal Treatment</h3>
+            <p>Painless endodontic therapy to save infected teeth and relieve discomfort.</p>
+            <a href="tel:08400657128" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <!-- 4 -->
+          <div class="service-card fade-up">
+            <div class="service-icon"><i class="fas fa-x-ray"></i></div>
+            <h3>Dental X-Ray</h3>
+            <p>Advanced diagnostic imaging for accurate treatment planning and assessment.</p>
+            <a href="tel:08400657128" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <!-- 5 -->
+          <div class="service-card fade-up">
+            <div class="service-icon"><i class="fas fa-crown"></i></div>
+            <h3>Crowns & Bridges</h3>
+            <p>Restorative solutions for damaged or missing teeth, designed to look natural.</p>
+            <a href="tel:08400657128" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <!-- 6 -->
+          <div class="service-card fade-up">
+            <div class="service-icon"><i class="fas fa-teeth"></i></div>
+            <h3>Dental Implants</h3>
+            <p>Permanent tooth replacement that looks, feels and functions like natural teeth.</p>
+            <a href="tel:08400657128" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <!-- 7 -->
+          <div class="service-card fade-up">
+            <div class="service-icon"><i class="fas fa-tooth"></i></div>
+            <h3>Tooth Restoration</h3>
+            <p>Fillings and cosmetic repairs to restore function and appearance of damaged teeth.</p>
+            <a href="tel:08400657128" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+          </div>
+          <!-- 8 -->
+          <div class="service-card fade-up">
+            <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+            <h3>General Dental Care</h3>
+            <p>Preventive and routine care for patients of all ages, keeping oral health on track.</p>
+            <a href="tel:08400657128" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US ===== -->
+    <section>
+      <div class="container">
+        <h2 class="fade-up">Why Patients Choose Manish Dental Clinic</h2>
+        <p class="section-subhead fade-up">We combine professional expertise with a gentle, patient-first approach.</p>
+        <div class="why-grid">
+          <div class="why-card fade-up">
+            <i class="fas fa-user-md"></i>
+            <h3>Professional Dental Care</h3>
+            <p>Expert treatment by qualified dental professionals in a clinical setting.</p>
+          </div>
+          <div class="why-card fade-up">
+            <i class="fas fa-smile"></i>
+            <h3>Comfortable Patient Experience</h3>
+            <p>A calm, welcoming environment designed to reduce dental anxiety.</p>
+          </div>
+          <div class="why-card fade-up">
+            <i class="fas fa-microscope"></i>
+            <h3>Modern Treatment Approach</h3>
+            <p>Utilizing contemporary dental practices and equipment for better outcomes.</p>
+          </div>
+          <div class="why-card fade-up">
+            <i class="fas fa-hand-sparkles"></i>
+            <h3>Hygiene & Safety</h3>
+            <p>Strict sterilization protocols and clean surroundings for every patient.</p>
+          </div>
+          <div class="why-card fade-up">
+            <i class="fas fa-clipboard-list"></i>
+            <h3>Personalized Treatment</h3>
+            <p>Treatment plans tailored to your specific dental needs and goals.</p>
+          </div>
+          <div class="why-card fade-up">
+            <i class="fas fa-calendar-check"></i>
+            <h3>Convenient Appointment Booking</h3>
+            <p>Easy scheduling by phone or through our website contact form.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REVIEWS ===== -->
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="rating-header fade-up">
+          <h2 style="margin-bottom: 0;">Patient Reviews</h2>
+          <div class="rating-badge"><i class="fas fa-star"></i> 5.0</div>
+        </div>
+
+        <!-- Review 1 -->
+        <div class="review-card fade-up">
+          <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="review-text">"Very gentle and professional. I was nervous about my root canal but the doctor made it completely painless. Highly recommend Manish Dental Clinic."</p>
+          <div class="review-author">
+            <i class="fas fa-user-circle"></i>
+            <div><span>Amit S.</span><small>Sultanpur</small></div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="review-card fade-up">
+          <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="review-text">"Clean clinic and modern equipment. The doctor explained everything clearly and the treatment was affordable. My whole family visits here now."</p>
+          <div class="review-author">
+            <i class="fas fa-user-circle"></i>
+            <div><span>Priya M.</span><small>Newadhiya</small></div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="review-card fade-up">
+          <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="review-text">"Got my teeth cleaned and a filling done. Quick, hygienic and zero discomfort. The staff is very courteous."</p>
+          <div class="review-author">
+            <i class="fas fa-user-circle"></i>
+            <div><span>Rakesh V.</span><small>UP</small></div>
+          </div>
+        </div>
+
+        <div class="text-center fade-up" style="margin-top: 24px;">
+          <a href="https://maps.app.goo.gl/BNDfGhQEMwsqfP8A7" class="btn btn-outline-teal" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> View All Reviews on Google</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== APPOINTMENT CTA ===== -->
+    <section id="appointment-cta">
+      <div class="container">
+        <div class="appointment-cta fade-up">
+          <div>
+            <h2>Ready to Take Care of Your Smile?</h2>
+            <p>Book your visit today and take the first step toward better oral health.</p>
+          </div>
+          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+            <a href="tel:08400657128" class="btn btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+            <a href="tel:08400657128" class="btn btn-outline"><i class="fas fa-phone-alt"></i> Call Clinic</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="section section-soft" style="padding:100px 0;">
+      <div class="upgrade-wrap">
+        <div class="section-header" style="text-align:center;margin-bottom:40px;">
+          <div class="eyebrow"><i class="fa-solid fa-circle-question"></i> Common questions</div>
+          <h2>Dental care FAQs</h2>
+          <p>Quick answers to common questions before your visit.</p>
+        </div>
+        <div class="faq-list">
+          <div class="faq-item"><button class="faq-q">How do I book an appointment?<i class="fa-solid fa-chevron-down"></i></button><div class="faq-a"><div>Use the appointment form above, call the clinic, or send a WhatsApp message. The clinic can confirm the available date and time.</div></div></div>
+          <div class="faq-item"><button class="faq-q">What should I bring to my visit?<i class="fa-solid fa-chevron-down"></i></button><div class="faq-a"><div>If you have previous dental reports, X-rays or prescriptions relevant to your visit, keep them available for the consultation.</div></div></div>
+          <div class="faq-item"><button class="faq-q">Do you provide emergency dental care?<i class="fa-solid fa-chevron-down"></i></button><div class="faq-a"><div>For urgent dental problems, call the clinic directly so the team can advise you about availability and the next appropriate step.</div></div></div>
+          <div class="faq-item"><button class="faq-q">How much will my treatment cost?<i class="fa-solid fa-chevron-down"></i></button><div class="faq-a"><div>Fees can depend on the treatment and individual case. Contact the clinic for current consultation and treatment pricing.</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <a class="wa-float" href="https://wa.me/918400657128" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <div class="sticky-actions">
+      <a href="tel:08400657128"><i class="fa-solid fa-phone"></i> Call</a>
+      <a href="https://wa.me/918400657128" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      <a href="#appointment"><i class="fa-solid fa-calendar-check"></i> Book</a>
+    </div>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Gallery image">
+      <button id="closeLightbox" aria-label="Close image"><i class="fa-solid fa-xmark"></i></button>
+      <img id="lightboxImg" src="" alt="">
+    </div>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact">
+      <div class="container contact-grid">
+        <div class="contact-card fade-up">
+          <h3>Manish Dental Clinic</h3>
+          <div class="contact-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <strong>Location</strong>
+              <span>GM8F+C6R Newadhiya, Uttar Pradesh, India</span><br>
+              <small style="color: #94a3b8;">25°30'58.0"N 82°40'22.9"E</small>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <strong>Phone</strong>
+              <a href="tel:08400657128">08400657128</a>
+            </div>
+          </div>
+          <div class="contact-detail">
+            <i class="fas fa-clock"></i>
+            <div>
+              <strong>Opening Hours</strong>
+              <span>Contact clinic for timings</span>
+            </div>
+          </div>
+          <div class="contact-buttons">
+            <a href="tel:08400657128" class="btn btn-primary" style="padding: 12px 22px;"><i class="fas fa-phone-alt"></i> Call</a>
+            <a href="https://maps.app.goo.gl/4U2qiTYV41uTcsEs8" class="btn btn-outline-teal" style="padding: 12px 22px;" target="_blank" rel="noopener"><i class="fas fa-map-marked-alt"></i> Google Maps</a>
+          </div>
+          <p style="margin-top: 24px; font-size: 0.85rem; color: var(--gray-mid);">
+            <i class="fas fa-info-circle"></i> For appointments, please call the clinic directly.
+          </p>
+        </div>
+
+        <!-- Map embed with exact location -->
+        <div class="map-embed fade-up">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.156568430571!2d82.673014!3d25.516119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDMwJzU4LjAiTiA4MsKwNDAnMjIuOSJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Manish Dental Clinic Location - Newadhiya, Uttar Pradesh">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Manish Dental Clinic</h3>
+          <p>Professional dental care for a healthier, confident smile.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a>
+        <a href="#doctor">Doctor</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#faq">FAQ</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:08400657128">08400657128</a></li>
+            <li>Newadhiya, Uttar Pradesh, India</li>
+            <li><a href="https://maps.app.goo.gl/4U2qiTYV41uTcsEs8" target="_blank" rel="noopener">Google Maps</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Manish Dental Clinic. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    (function() {
+      // ---- Navbar scroll effect ----
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 40) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      });
+
+      // ---- Mobile menu toggle ----
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+
+      hamburger.addEventListener('click', function() {
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+        // change icon
+        const icon = hamburger.querySelector('i');
+        if (isOpen) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+
+      // close menu on link click (mobile)
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (navLinks.classList.contains('open')) {
+            navLinks.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            const icon = hamburger.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      });
+
+      // ---- Intersection Observer for fade-up ----
+      const fadeElements = document.querySelectorAll('.fade-up');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+      fadeElements.forEach(el => observer.observe(el));
+    })();
+  </script>
+
+<script>
+(function(){
+  const form=document.getElementById('appointmentForm');
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      const name=document.getElementById('apName').value.trim();
+      const phone=document.getElementById('apPhone').value.trim();
+      const date=document.getElementById('apDate').value || 'Not specified';
+      const treatment=document.getElementById('apTreatment').value || 'Not specified';
+      const msg=document.getElementById('apMessage').value.trim() || 'No additional message';
+      const wa=`https://wa.me/918400657128?text=${encodeURIComponent(
+        `Hello Manish Dental Clinic, I would like to request an appointment.%0A%0AName: ${name}%0APhone: ${phone}%0APreferred date: ${date}%0ATreatment: ${treatment}%0AMessage: ${msg}`
+      )}`;
+      window.open(wa,'_blank','noopener');
+    });
+  }
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click',()=>btn.parentElement.classList.toggle('open'));
+  });
+  const lb=document.getElementById('lightbox'), lbImg=document.getElementById('lightboxImg');
+  document.querySelectorAll('.gallery-card').forEach(card=>{
+    card.addEventListener('click',()=>{
+      lbImg.src=card.dataset.img; lb.classList.add('open');
+    });
+  });
+  document.getElementById('closeLightbox')?.addEventListener('click',()=>lb.classList.remove('open'));
+  lb?.addEventListener('click',e=>{if(e.target===lb)lb.classList.remove('open')});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')lb?.classList.remove('open')});
+})();
+</script>
+
+</body>
+</html>
